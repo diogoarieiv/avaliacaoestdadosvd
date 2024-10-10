@@ -1,0 +1,39 @@
+pilha = []
+reserva = []
+var = 0
+
+def adicionar(pilha):
+    palavra = input("Adicionar um nome ao documento: ")
+    pilha.append(palavra)
+    print(f"Sua pilha => {pilha}")
+
+def controlZ(pilha):
+    if pilha != "":
+        valor = pilha.pop()
+        reserva.append(valor)
+        print(f"Sua pilha => {pilha}")
+    else:
+        print("Pilha vazia.")
+
+
+while var == 0:
+    decisao = input("Quer adicionar um item? (s/n) ")
+    if decisao == "s":
+        adicionar(pilha)
+    else:
+        var = 1
+        controle = input("Quer desfazer a ação? (s/n) ")
+        if controle == "s":
+            controlZ(pilha)
+            var = 1
+            controlY = input("Quer refazer a ação que foi desfeita? (s/n) ")
+            if controlY == "s":
+                valor = reserva.pop()
+                pilha.append(valor)
+                print(f"Sua pilha => {pilha}")
+                var = 0
+            if  controlY == "n":
+                controlZ(pilha)
+
+
+
